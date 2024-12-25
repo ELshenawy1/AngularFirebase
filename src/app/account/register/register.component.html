@@ -1,0 +1,88 @@
+<div class="wrapper">
+  <div class="container main">
+    <div class="row">
+      <div class="col-md-6 side-image"  [ngStyle]="{'background-image': 'url(' + bankLogo + ')'}">
+        <img src="images/white.png" alt="" />
+      </div>
+      <form
+        [formGroup]="registerationForm"
+        class="col-md-6 right"
+        (submit)="onSubmit($event)"
+      >
+        <div class="input-box">
+          <header style="font-size: 20px">Create User</header>
+
+          <div class="alert alert-dismissible alert-danger" *ngIf="invalidData">
+            <button
+              type="button"
+              (click)="hideAlert()"
+              class="btn-close"
+            ></button>
+            <strong
+              ><i class="fa-solid fa-circle-exclamation"></i>
+              <i class="fa fa-exclamation-circle me-1"></i> Invalid Name and
+              password!</strong
+            >
+          </div>
+
+          <div class="input-field mb-3">
+            <input
+              type="text"
+              class="input"
+              id="userName"
+              required=""
+              autocomplete="off"
+              formControlName="userName"
+            />
+            <label for="userName">User Name</label>
+            <ng-container *ngIf="getUserName.touched">
+              <span
+                class="text-danger "
+                style="font-size: 13px"
+                *ngIf="getUserName.hasError('required')"
+                >User Name is required</span
+              >
+              <span
+                class="text-danger"
+                style="font-size: 13px"
+                *ngIf="getUserName.errors && getUserName.errors['usernameExists']"
+                >Username already exists</span
+              >
+              <!-- <span class="text-danger" style="font-size: 13px;" *ngIf="getEmail.hasError('email')">Invalid Email</span> -->
+            </ng-container>
+          </div>
+            <div class="col-md-12 form-group mb-4">
+                <select class="form-select" name="branchId"  formControlName="branchId">
+                  <option disabled selected [value]="null">Branch</option>
+                  <option *ngFor="let branch of branches" [value]="branch.branchId">{{ branch.branchName }}</option>
+                </select>
+            </div>
+
+          <div class="input-field">
+            <input
+              type="password"
+              class="input"
+              id="pass"
+              required=""
+              formControlName="password"
+            />
+            <label for="pass">Password</label>
+            <ng-container *ngIf="getPassword.touched">
+              <span
+                class="text-danger"
+                style="font-size: 13px"
+                *ngIf="getPassword.hasError('required')"
+                >Password is required</span
+              >
+            </ng-container>
+          </div>
+          <div class="input-field mt-3">
+            <input type="submit" class="submit" value="Create" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+

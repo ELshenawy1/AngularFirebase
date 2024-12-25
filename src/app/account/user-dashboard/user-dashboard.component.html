@@ -1,0 +1,88 @@
+<div class="container mt-5">
+  <table class="table table-hover text-center">
+    <thead class="table-light">
+      <tr class=" table-light">
+        <th scope="col">ID</th>
+        <th scope="col">Branch</th>
+        <th scope="col">User Name</th>
+        <th scope="col">Login Name</th>
+        <th scope="col">Is System Admin</th>
+        <th scope="col">Is Locked</th>
+        <th scope="col">Operations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <th scope="row">{{ user.userId }}</th>
+        <td>{{ user.branch }}</td>
+        <td>{{ user.userName }}</td>
+        <td>{{ user.login }}</td>
+        <td >
+          <div class="checkbox-wrapper-18 d-flex justify-content-center">
+            <div class="round">
+              <input
+                type="checkbox"
+                [checked]="user.isSecurityOfficer"
+                disabled  
+                id="checkbox-18"
+              />
+              <label for="checkbox-18"></label>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="checkbox-wrapper-18 d-flex justify-content-center">
+            <div class="round">
+              <input
+                type="checkbox"
+                [checked]="user.locked"
+                disabled
+                id="checkbox-18"
+              />
+              <label for="checkbox-18"></label>
+            </div>
+          </div>
+        </td>
+        <td class="text-center" *ngIf="(accountService.currentUser$| async) as currentUser">
+          <button 
+                  [disabled]="currentUser.displayName === user.userName" 
+                  (click)="saveUserId(user.userId)"  
+                  title="Update" 
+                  [routerLink]="currentUser.displayName === user.userName ? null :  ['/update-user']"
+                  [style.width.%]="user.isSecurityOfficer ? 75 : null" 
+                  class="btn btn-dark me-2">
+                    <i class="bi bi-pencil-square"></i>
+          </button>
+
+          <button 
+                  [disabled]="currentUser.displayName === user.userName"  
+                  (click)="saveUserId(user.userId)"  
+                  title="Groups" 
+                  *ngIf="!user.isSecurityOfficer" 
+                  [routerLink]="currentUser.displayName === user.userName ? null :  ['/user-groups']"
+                  class="btn btn-dark me-2" >
+                    <i class="bi bi-people-fill"></i>
+          </button>
+
+          <button 
+                  [disabled]="currentUser.displayName === user.userName"  
+                  *ngIf="!user.isSecurityOfficer"  
+                  title="Delete"  
+                  (click)="currentUser.displayName === user.userName ? null : RemoveUser(user.userId)"
+                  class="btn btn-danger me-2" >
+                    <i class="bi bi-trash3"></i>
+          </button>
+        </td>
+      </tr>
+      <tr >
+        <td colspan="7" class="text-center"> 
+            <a class="btn btn-dark" routerLink="/register">
+                Add New User
+                <i class="bi bi-plus-square"></i>
+            </a>
+        </td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>

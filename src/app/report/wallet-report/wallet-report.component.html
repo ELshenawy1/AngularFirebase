@@ -1,0 +1,114 @@
+<div class="content">
+    <div class="container">
+        <div class="row align-items-stretch justify-content-center no-gutters">
+            <div class="col-md-7">
+                <div class="form h-100 contact-wrap p-5">
+                    <h3 class="text-center">Mobile Wallet Report</h3>
+                    <form class="mb-1" method="post" [formGroup]="walletReportForm" (submit)="onSubmit($event)"
+                        id="CreateAtmFrom" name="CreateAtmFrom">
+
+
+                        <div class="row">
+                            <div class="col-md-6 form-group mb-3">
+                                <label for="dateFrom" class="col-form-label">Date From</label>
+                                <input class="form-control" type="date" formControlName="dateFrom" name="dateFrom" id="dateFrom"
+                                    placeholder="mm/dd/yyyy">
+                                    <ng-container *ngIf="getDateFrom.touched">
+                                        <span
+                                        class="text-danger"
+                                        style="font-size: 13px"
+                                        *ngIf="getDateFrom.hasError('required')"
+                                        >Date from is required</span>                    
+                                    </ng-container>
+                            </div>
+                            <div class="col-md-6 form-group mb-3">
+                                <label for="dateTo" class="col-form-label">Date To</label>
+                                <input class="form-control" type="date" formControlName="dateTo" name="dateTo" id="dateTo"
+                                    placeholder="mm/dd/yyyy">
+                                    <ng-container *ngIf="getDateTo.touched">
+                                        <span
+                                        class="text-danger"
+                                        style="font-size: 13px"
+                                        *ngIf="getDateTo.hasError('required')"
+                                        >Date to is required</span>                    
+                                    </ng-container>
+                            </div>
+                        </div>
+
+
+                        <div class="row">   
+                            <div class="col-md-6 form-group mb-3">
+                                <label for="mobileNumber" class="col-form-label">Term ID</label>
+
+                                <select class="form-select" name="termId" formControlName="termId">
+                                    <option disabled selected [value]="null">Select All</option>
+                                    <option *ngFor="let atm of walletReportData?.atmList | keyvalue"
+                                        [value]="atm.value">{{ atm.value }}</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 form-group mb-3">
+                                <label for="mobileNumber" class="col-form-label">Mobile Number</label>
+                                <input class="form-control" formControlName="mobileNumber" name="mobileNumber"
+                                    id="mobileNumber" placeholder="+20 1XX XXX XXXX" >
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-6 form-group mb-3">
+                                <label for="transactionType" class="col-form-label">Transaction Type</label>
+                                <select class="form-select" name="transactionType" formControlName="transactionType">
+                                    <option  selected [value]="null">Select All</option>
+                                    <option *ngFor="let type of walletReportData?.transType | keyvalue"
+                                        [value]="type.key">{{ type.value }}</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6 form-group mb-3">
+                                <label for="transactionStatus" class="col-form-label">Transaction Status</label>
+
+                                <select class="form-select" name="transactionStatus" formControlName="transactionStatus">
+                                    <option selected [value]="null">Select All</option>
+                                    <option *ngFor="let status of walletReportData?.transStatus"
+                                        [value]="status.responseCode">{{ status.responseDesc }}</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        
+                        <div class="row">
+                            <div class="col-md-6 form-group mb-3">
+                                <label for="brnach" class="col-form-label">Branch</label>
+                                <select class="form-select" name="brnach" formControlName="brnach">
+                                    <option  selected [value]="null">Select All</option>
+                                    <option *ngFor="let branch of walletReportData?.branchesList"
+                                        [value]="branch.branchId">{{ branch.branchName }}</option>
+                                </select>
+                            </div>
+
+                            
+                            <div class="col-md-6 form-group mb-3">
+                                <label for="region" class="col-form-label">Region</label>
+
+                                <select class="form-select" name="region" formControlName="region">
+                                    <option selected [value]="null">Select All</option>
+                                    <option *ngFor="let region of walletReportData?.regionsList"
+                                        [value]="region.regionId">{{ region.regionName }}</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="row justify-content-center pt-3">
+                            <div class="text-center">
+                                <button class="btn btn-dark">Preview</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

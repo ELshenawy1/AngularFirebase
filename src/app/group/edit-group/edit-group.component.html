@@ -1,0 +1,65 @@
+<div class="wrapper">
+    <div class="container main">
+      <div class="row">
+        <div class="col-md-6 side-image">
+          <img src="images/white.png" alt="" />
+          <!-- <div class="text">
+                          <p>Join the community of developers <i>- ludiflex</i></p>
+                        </div> -->
+        </div>
+        <form
+          [formGroup]="editGruopForm"
+          class="col-md-6 right"
+          (submit)="onSubmit($event)"
+        >
+          <div class="input-box">
+            <header style="font-size: 20px">Edit Group</header>
+  
+            <div class="alert alert-dismissible alert-danger" *ngIf="invalidData">
+              <button
+                type="button"
+                (click)="hideAlert()"
+                class="btn-close"
+              ></button>
+              <strong
+                ><i class="fa-solid fa-circle-exclamation"></i>
+                <i class="fa fa-exclamation-circle me-1"></i>Invalid Data</strong
+              >
+            </div>
+  
+            <div class="input-field mb-3">
+              <input
+                type="text"
+                class="input"
+                id="groupName"
+                required=""
+                autocomplete="off"
+                formControlName="groupName"
+              />
+              <label for="groupName" class="styled-label">Group Name</label>
+              <ng-container *ngIf="getGroupName.touched">
+                <span
+                  class="text-danger"
+                  style="font-size: 13px"
+                  *ngIf="getGroupName.hasError('required')"
+                  >Group Name is required</span
+                >
+              </ng-container>
+            </div>
+  
+            <div class="input-field">
+                <div class="mb-3">
+                    <label for="notes" class="form-label">Textarea Label</label>
+                    <textarea class="form-control" id="notes" formControlName="notes" rows="5"></textarea>
+                  </div>
+            </div>
+            <div class="input-field mt-3">
+              <input type="submit" class="submit" value="Edit" />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  

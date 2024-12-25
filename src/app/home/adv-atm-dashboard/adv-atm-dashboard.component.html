@@ -1,0 +1,189 @@
+<div class="container">
+    <h3 class="mb-3"><strong>ATMs with the Highest Withdrawal Activity:</strong></h3>
+    <div class="row ">
+        <div class="col-xl-3 col-lg-3">
+            <div class="card l-bg-green-dark">
+                <div class="card-statistic-3 p-4">
+                    <div class="card-icon card-icon-large"><i class="fas bi bi-1-square-fill"></i></div>
+                    <div class="mb-2">
+                        <h5 class="card-title mb-0">ATM: {{ 123 }}</h5>
+                    </div>
+                    <div class="row align-items-center mb-0 d-flex">
+                        <div class="col-12">
+                            <h6 class="d-flex align-items-center mb-4">
+                                <strong>Number of Deposits: </strong> &nbsp;{{ 222 }}
+                            </h6>
+                            <h6 class="d-flex align-items-center mb-0">
+                                <strong>Total Cash In Amount:</strong> &nbsp;{{ 333 }}
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-3">
+            <div class="card l-bg-green-dark">
+                <div class="card-statistic-3 p-4">
+                    <div class="card-icon card-icon-large"><i class="fas bi bi-2-square-fill"></i></div>
+                    <div class="mb-2">
+                        <h5 class="card-title mb-0">ATM: {{ 123 }}</h5>
+                    </div>
+                    <div class="row align-items-center mb-0 d-flex">
+                        <div class="col-12">
+                            <h6 class="d-flex align-items-center mb-4">
+                                <strong>Number of Deposits: </strong> &nbsp;{{ 222 }}
+                            </h6>
+                            <h6 class="d-flex align-items-center mb-0">
+                                <strong>Total Cash In Amount:</strong> &nbsp;{{ 333 }}
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-3">
+            <div class="card l-bg-green-dark">
+                <div class="card-statistic-3 p-4">
+                    <div class="card-icon card-icon-large"><i class="fas bi bi-3-square-fill"></i></div>
+                    <div class="mb-2">
+                        <h5 class="card-title mb-0">ATM: {{ 123 }}</h5>
+                    </div>
+                    <div class="row align-items-center mb-0 d-flex">
+                        <div class="col-12">
+                            <h6 class="d-flex align-items-center mb-4">
+                                <strong>Number of Deposits: </strong> &nbsp;{{ 222 }}
+                            </h6>
+                            <h6 class="d-flex align-items-center mb-0">
+                                <strong>Total Cash In Amount:</strong> &nbsp;{{ 333 }}
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-3">
+            <div class="card l-bg-green-dark">
+                <div class="card-statistic-3 p-4">
+                    <div class="card-icon card-icon-large"><i class="fas bi bi-4-square-fill"></i></div>
+                    <div class="mb-2">
+                        <h5 class="card-title mb-0">ATM: {{ 123 }}</h5>
+                    </div>
+                    <div class="row align-items-center mb-0 d-flex">
+                        <div class="col-12">
+                            <h6 class="d-flex align-items-center mb-4">
+                                <strong>Number of Deposits: </strong> &nbsp;{{ 222 }}
+                            </h6>
+                            <h6 class="d-flex align-items-center mb-0">
+                                <strong>Total Cash In Amount:</strong> &nbsp;{{ 333 }}
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <h3 class="mb-3"><strong>ATMs with the Highest Deposit Activity:</strong></h3>
+    <div class="row">
+        <div class="col-xl-3 col-lg-3" *ngFor="let atm of atmDepositData | slice: 0:4 ; ; let i = index">
+            <ng-template #popContent><strong>Last Deposit Date:</strong> {{atm.lastDepositDate | date}}<br><strong>Last
+                    Deposit Amount:</strong> {{atm.lastDepositAmount|currency}}<br><strong>Atm Balance:</strong>
+                {{atm.atmBalance|currency}}<br><strong>Last Cash Refill Date:</strong>
+                {{atm.lastReplenishmentDate|date}}</ng-template>
+            <div class="card l-bg-green-dark" [ngbPopover]="popContent" triggers="mouseenter:mouseleave"
+                [popoverTitle]="atm.id">
+                <div class="card-statistic-3 p-4">
+                    <div class="card-icon card-icon-large">
+                        <i class="fas bi bi-{{i+1}}-square-fill"></i>
+                    </div>
+                    <div class="mb-2">
+                        <h5 class="card-title mb-0">ATM: {{ atm.id }}</h5>
+                    </div>
+                    <div class="row align-items-center mb-0 d-flex">
+                        <div class="col-12">
+                            <h6 class="d-flex align-items-center mb-4">
+                                <strong>Number of Deposits:</strong> &nbsp;{{ atm.count }}
+                            </h6>
+                            <h6 class="d-flex align-items-center mb-0">
+                                <strong>Total Cash In Amount:</strong> &nbsp;{{ atm.totalCashInAmount }}
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="atm-dashboard-card">
+    <div class="row ">
+        <div class="col-md-12 form-group mb-3">
+            <div class="d-flex justify-content-between align-items-center pb-2">
+                <div class="input-field col-md-12 d-flex ">
+                    <input (keyup.enter)="onSearch()" type="text " placeholder="Search" class="form-control me-2"
+                        #search />
+                    <button class="btn btn-outline-primary mx-2" (click)="onSearch()">Search</button>
+                    <button class="btn btn-outline-success" (click)="onReset()">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div class="carousel-inner pt-3 pb-3 h-100 d-inline-block">
+            <div class="carousel-item" [ngClass]="{ 'active': i === 0 }"
+                *ngFor="let group of groupedAtms; let i = index">
+                <div class="container">
+                    <div class="row" *ngFor="let row of group">
+                        <div class="col-md-3" *ngFor="let atm of row">
+                            <div class="card carde radius-10 border-start border-0 border-3 mb-3" [ngClass]="atm.balance > dashboardBalance ? 'border-info' : 'border-danger'">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center ">
+                                        <div>
+                                            <p class="mb-0 text-secondary">Group : {{atm.groupName}}</p>
+                                            <h5 class="my-1" [ngClass]="atm.balance > dashboardBalance ? 'text-info' : 'text-danger'">ATM : {{atm.atmId}}</h5>
+                                            <p class="mb-0 font-13">Balance : {{atm.balance}}</p>
+                                            <p class="mb-0 font-13">Replinsh Date : {{atm.replinshDate | date}}</p>
+                                            <p class="mb-0 font-13">Deposit Amount : {{atm.depositAmount}}</p>
+                                        </div>
+                                    </div>
+                                </div>  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <pagination 
+        [boundaryLinks]="true" 
+        [totalItems]="totalRecords" 
+        [itemsPerPage]="atmParams.pageSize"
+        (pageChanged)="onPageChanged($event)"
+        [maxSize]="12"
+        previousText="&lsaquo;" 
+        nextText="&rsaquo;"
+        firstText="&laquo;" 
+        lastText="&raquo;">
+
+        </pagination>
+    </div>
+    <header *ngIf="totalRecords && atmParams.pageIndex && atmParams.pageSize">
+        <span *ngIf="totalRecords>0">Show
+            <strong>{{(atmParams.pageIndex-1)*atmParams.pageSize+1}}-
+                {{(atmParams.pageIndex * atmParams.pageSize > totalRecords) 
+                ? totalRecords 
+                : atmParams.pageIndex * atmParams.pageSize}}</strong>
+            of <strong>{{totalRecords}}</strong> Result
+        </span>
+        <span *ngIf="totalRecords == 0"><strong>There is no items</strong></span>
+    </header>
+</div>

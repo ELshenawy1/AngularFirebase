@@ -1,0 +1,68 @@
+
+<div class="container mt-5" *ngIf="!userWithGroups">
+    <div class="alert alert-dismissible alert-warning">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <h4 class="alert-heading">Warning!</h4>
+        <p class="mb-0">  Please provide a valid user ID, <a routerLink="/user/showusers"  class="alert-link">Back To List</a>.</p>
+    </div>    
+</div>
+  
+
+<div *ngIf="userWithGroups" class="container">
+  
+<header class="container d-flex flex-column align-items-center py-3 mt-5">
+    <h3 class="text-center"> {{userWithGroups.userName}} </h3> 
+</header>
+
+<main class="container mt-5">
+    <div class="row">
+      <div class="col-md-6 mb-3 ">
+        <table class="table table-rounded table-hover ">
+            <thead >
+              <tr>
+                <th colspan="3" class="text-center" >Assigned Groups</th>
+              </tr>
+              <tr class="table-light">
+                <th scope="col" >ID</th>
+                <th scope="col" >Group Name</th>
+                <th scope="col" style="width: 20%;" class="align-middle text-center">Unassign</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let group of In">
+                <td>{{group.groupId}}</td>
+                <td>{{group.groupName}}</td>
+                <td class="align-middle text-center text-danger" ><i (click)="Remove(group.groupId)" class="bi bi-dash-circle h3 plus-icon-hover"></i></td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <table class="table table-rounded table-hover ">
+          <thead>
+            <tr>
+              <th colspan="3" class="text-center" >Available Groups</th>
+            </tr>
+
+            <tr class="table-light">
+              <th scope="col" >ID</th>
+              <th scope="col" >Group Name</th>
+              <th scope="col" style="width: 20%;" class="align-middle text-center">Assign</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let group of Out">
+              <td>{{group.groupId}}</td>
+              <td>{{group.groupName}}</td>
+              <td class="align-middle text-center text-success" ><i (click)="Assign(group.groupId, group.groupName)" class="bi bi-plus-circle h3 plus-icon-hover"></i></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+
+</div>
+

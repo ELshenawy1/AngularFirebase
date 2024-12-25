@@ -1,0 +1,78 @@
+  <div class="container">
+
+    <p-treeSelect class="w-full" containerStyleClass="w-full" placeholder="Select Device" [(ngModel)]="selectedOption"
+    [options]="treeOptions" selectionMode="checkbox" [metaKeySelection]="false" [propagateSelectionDown]="true"
+    [propagateSelectionUp]="true" display="chip" [filter]="true" [filterInputAutoFocus]="true"
+    [showClear]="true"></p-treeSelect>
+
+    <form class="form" *ngIf="true" (submit)="onSubmit($event)" [formGroup]="exportReportForm">
+
+      <div class="row">
+
+        <div class="col-md-12 form-group mb-2 mt-6">
+          <select class="form-select"  formControlName="reportType" (change)="onReportTypeChange()">
+            <option disabled selected [value]="null">Select Report</option>
+            <option *ngFor="let reportType of reportsTypes | keyvalue" [value]="reportType.key">
+              {{ reportType.value }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="main mt-3" *ngIf="this.exportReportForm.get('reportType')?.value != null">
+        <ul class="cards">
+          <li class="cards_item" id="item_salad">
+            <div class="card">
+              <div class="card_content">
+                <div>
+                  <div class="select-row" >
+                    <div class="input-box" *ngIf="this.showDateFrom">
+                      <label for="date-from">Date From</label>
+                      <input type="date" id="date-from" formControlName="dateFrom" placeholder="mm/dd/yyyy" />
+                    </div>
+                    <div class="input-box" *ngIf="this.showDateTo">
+                      <label for="date-to">Date To</label>
+                      <input type="date" id="date-to" formControlName="dateTo" placeholder="mm/dd/yyyy" />
+                    </div>
+                  </div>
+                  <div class="select-row" *ngIf="showCassetteFields">
+                    <div class="input-box">
+                      <label for="date-to">Cassette 1</label>
+                      <input type="number" id="cassette1" formControlName="cassette1"  />
+                    </div>
+                    <div class="input-box">
+                      <label for="date-to">Cassette 2</label>
+                      <input type="number" id="cassette2" formControlName="cassette2"  />
+                    </div>
+                    <div class="input-box">
+                      <label for="date-to">Cassette 3</label>
+                      <input type="number" id="cassette3" formControlName="cassette3"  />
+                    </div>
+                    <div class="input-box">
+                      <label for="date-to">Cassette 4</label>
+                      <input type="number" id="cassette4" formControlName="cassette4"  />
+                    </div>
+                  </div>
+                  <div class="select-row" *ngIf="showBalance">
+                    <div class="input-box">
+                      <label for="date-from">Balance Less Than</label>
+                      <input type="number" id="balanceLessThan" formControlName="balanceLessThan" />
+                    </div>
+                    <div class="input-box">
+                      <label for="date-to">Balance Greater Than</label>
+                      <input type="number" id="balanceGreaterThan" formControlName="balanceGreaterThan"/>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+      <div class="input-field mt-3 d-flex justify-content-center">
+        <input type="submit" class="submit btn btn-dark" value="Export" />
+      </div>
+    </form>
+  </div>

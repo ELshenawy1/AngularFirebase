@@ -1,0 +1,49 @@
+<div class="main">
+  <section class="container">
+    <header>User Activities Report</header>
+    <form class="form" (submit)="onSubmit($event)" [formGroup]="reportForm">
+      <div class="select-row">
+        <div class="input-box">
+          <label for="date-from">Date From</label>
+          <input type="date" id="date-from" formControlName="fromdate" placeholder="mm/dd/yyyy" />
+          <ng-container *ngIf="getDateFrom.touched">
+            <span
+            class="text-danger"
+            style="font-size: 13px"
+            *ngIf="getDateFrom.hasError('required')"
+            >Date from is required</span>              
+        </ng-container>
+        </div>
+        <div class="input-box">
+          <label for="date-to">Date To</label>
+          <input type="date" id="date-to" formControlName="todate" placeholder="mm/dd/yyyy" />
+          <ng-container *ngIf="getDateTo.touched">
+            <span
+            class="text-danger"
+            style="font-size: 13px"
+            *ngIf="getDateTo.hasError('required')"
+            >Date to is required</span>              
+        </ng-container>
+        </div>
+      </div>
+      <div class="select-row">
+        <div class="select-box">
+          <label for="user">User</label>
+          <select id="user" name="user" formControlName="user">
+            <option selected [value]="null">All</option>
+            <option *ngFor="let user of users" [value]="user.userId">{{ user.userName }}</option>
+
+          </select>
+        </div>
+        <div class="select-box">
+          <label for="actionType">Action Type</label>
+          <select id="actionType" name="actionType" formControlName="actionType">
+            <option selected [value]="null">All</option>
+            <option *ngFor="let action of actions" [value]="action.actionType">{{ action.actionName }}</option>
+          </select>
+        </div>
+      </div>
+      <button type="submit" class="btn">Submit</button>
+    </form>
+  </section>
+</div>

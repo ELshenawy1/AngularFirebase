@@ -1,0 +1,137 @@
+  
+
+  <div class="content">
+    <div class="container">
+      <div class="row align-items-stretch justify-content-center no-gutters">
+        <div class="col-md-7">
+          <div class="form h-100 contact-wrap p-5">
+            <h3 class="text-center">Edit ATM</h3>
+            <form class="mb-5"method="post" [formGroup]="CreateAtmFrom" (submit)="onSubmit($event)"  id="CreateAtmFrom" name="CreateAtmFrom">
+              <div class="row">
+                <div class="col-md-6 form-group mb-3">
+                  <label for="" class="col-form-label">ATM ID</label>
+                  <input [ngClass]="{'is-invalid': hasAnyError(getAtmId)}"  class="form-control" formControlName="atmId" name="atmId" id="atmId" placeholder="ATM ID">
+                  <ng-container *ngIf="getAtmId.touched">
+                    <span
+                    class="text-danger"
+                    style="font-size: 13px"
+                    *ngIf="getAtmId.hasError('required')"
+                    >ATM ID is required</span>
+                </ng-container>
+                </div>
+                <div class="col-md-6 form-group mb-3">
+                  <label for="" class="col-form-label">Serial ID</label>
+                  <input class="form-control" formControlName="atmId2" name="atmId2" id="atmId2"  placeholder="Serial ID">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 form-group mb-3">
+                  <label for="" class="col-form-label">IP Address</label>
+                  <input [ngClass]="{'is-invalid': hasAnyError(getAtmIp)}"  class="form-control" formControlName="atmIp" name="atmIp" id="atmIp" placeholder="IP Address">
+                  <ng-container *ngIf="getAtmIp.touched">
+                      <span
+                      class="text-danger"
+                      style="font-size: 13px"
+                      *ngIf="getAtmIp.hasError('required')"
+                      >ATM IP is required</span>
+                      <span
+                      class="text-danger"
+                      style="font-size: 13px"
+                      *ngIf="(!getAtmIp.hasError('required')) && getAtmIp.hasError('invalidIpAddress')"
+                    >ATM IP must match the format '[0-255].[0-255].[0-255].[0-255]'.</span>
+                
+                  </ng-container>
+                </div>
+                <div class="col-md-6 form-group mb-3">
+                  <label for="" class="col-form-label">Acceptor Name</label>
+                  <input [ngClass]="{'is-invalid': hasAnyError(getAtmId1)}" class="form-control" formControlName="atmId1" name="atmId1" id="atmId1"  placeholder="Acceptor Name">
+                  <ng-container *ngIf="getAtmId1.touched">
+                    <span
+                    class="text-danger"
+                    style="font-size: 13px"
+                    *ngIf="getAtmId1.hasError('required')"
+                    >Acceptor Name is required</span>              
+                </ng-container>
+ 
+                </div>  
+              </div>
+
+              <div class="row">
+                <div class="col-md-4 form-group mb-3">
+                  <select class="form-select" name="atmBranchId"  formControlName="atmBranchId">
+                    <option disabled selected [value]="null">Branch</option>
+                    <option *ngFor="let branch of createAtmDependencies?.corBranchTab" [value]="branch.branchId">{{ branch.branchName }}</option>
+                  </select>
+                </div>
+                <div class="col-md-4 form-group mb-3">
+                  <select [ngClass]="{'is-invalid': hasAnyError(getAtmType)}"  class="form-select" name="atmType"  formControlName="atmType">
+                    <option disabled selected [value]="null">Type</option>
+                    <option *ngFor="let type of createAtmDependencies?.corAtmType" [value]="type.atmType">{{ type.typeName }}</option>
+                  </select>
+                  <ng-container *ngIf="getAtmType.touched">
+                    <span
+                    class="text-danger"
+                    style="font-size: 13px"
+                    *ngIf="getAtmType.hasError('required')"
+                    >ATM Type is required</span>              
+                </ng-container>
+
+                </div>
+                <div class="col-md-4 form-group mb-3">
+                  <select class="form-select" name="atmRegionId"  formControlName="atmRegionId">
+                    <option disabled selected [value]="null">Region</option>
+                    <option *ngFor="let region of createAtmDependencies?.corRegionTab" [value]="region.regionId">{{ region.regionName }}</option>
+                  </select>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class="col-md-12 form-group mb-3">
+                  <label for="" class="col-form-label">Address</label>
+                  <input class="form-control" formControlName="atmAddress" name="atmAddress" id="atmAddress" placeholder="Address">
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class="input-group mb-3">
+                  <div class="input-group-text">
+                    <input class="form-check-input mt-0" formControlName="activeFRX"
+                    type="checkbox"
+                    (change)="updateValidators()"
+                    id="checkbox-18" aria-label="Checkbox for following text input">
+                    <label for="checkbox-18" class="ms-2 mb-0">Enable Forex</label>
+                  </div>
+                  <select           
+                        *ngIf="getActiveFRX.value" class="form-select" name="frxProfile"  formControlName="frxProfile">
+                    <option disabled selected [value]="null">Select ATM Profile</option>
+                    <option *ngFor="let fap of createAtmDependencies?.frxAtmProfile" [value]="fap.atmProfile"> {{fap.atmProfileDesc}} </option>
+                  </select>
+                </div>
+                <ng-container *ngIf="getFrxProfile.touched">
+                    <span
+                    class="text-danger"
+                    style="font-size: 13px"
+                    *ngIf="getFrxProfile.hasError('required')"
+                    >Frx Profile is required</span>              
+                </ng-container>
+                
+              </div>
+
+              
+
+              <div class="row justify-content-center pt-3">
+                <div class="col-md-5 form-group text-center">
+                  <button class="btn btn-primary">Edit ATM</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+    
+

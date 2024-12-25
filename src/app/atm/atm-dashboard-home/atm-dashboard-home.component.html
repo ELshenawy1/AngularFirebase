@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="sidebar bg-light" [ngClass]="{'close': isSidebarClosed}">
+    <!-- ========== Logo ============  -->
+    <a href="#" class="logo-box" (click)="toggleSidebar()">
+      <!-- <img src="https://localhost:44387/raya.png" alt="Logo" class="logo-img"> -->
+      <img src="https://localhost:44387/pngegg.png" alt="Logo" class="logo-img">
+
+      <!-- <div class="logo-name">Raya Information Technology</div> -->
+    </a>
+
+    <!-- ========== List ============  -->
+    <ul class="sidebar-list">
+      <li *ngFor="let item of items" [ngClass]="{'active': item.active}" (click)="selectItem(item)">
+        <div class="title">
+          <a href="#" class="link">
+            <i [class]="item.icon"></i>
+            <span class="name">{{ item.name }}</span>
+          </a>
+        </div>
+      </li>
+    </ul>
+</div>
+
+  <!-- ============= Home Section =============== -->
+  <section class="home">
+    <div class="toggle-sidebar" (click)="toggleSidebar()">
+      <!-- <i class='bx bx-menu'></i> -->
+      <i class="bi bi-list"></i>
+      <!-- <div class="text"><i class="bi bi-list"></i></div> -->
+      <div class="container" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores nihil perferendis labore esse non nemo id? Beatae, iste enim ipsam illo libero nesciunt amet culpa alias corrupti assumenda suscipit eius magnam odit esse mollitia hic debitis, pariatur repudiandae veniam harum dolor itaque voluptatum dolorum? Eligendi ex tempora sint soluta blanditiis minima? Optio soluta ipsam incidunt provident eveniet aut perferendis voluptates eum nobis tenetur. Eveniet quidem dolorum, suscipit voluptatum corporis doloribus, inventore, possimus tempora molestias blanditiis atque tenetur expedita modi nisi dolorem voluptatem iusto officia. Commodi culpa error fuga inventore placeat. Voluptatum dolorem quibusdam eligendi magnam doloremque et cum alias neque!</div>
+    </div>
+  </section>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

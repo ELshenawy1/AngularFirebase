@@ -1,0 +1,11 @@
+{
+    "serviceConfig" : {
+        "apiUrl" : "http://userone010-001-site1.qtempurl.com/api",
+        "currentBank": "NXT",
+        "audit" : true,
+        "cms" : true,
+        "frx" : true, 
+        "wlt" : true,
+        "dashboardBalance" : 2000
+    }
+}

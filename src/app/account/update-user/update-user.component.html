@@ -1,0 +1,72 @@
+  
+
+  <div class="content">
+    
+    <div class="container">
+      <div class="row align-items-stretch justify-content-center no-gutters">
+        <div class="col-md-7">
+          <div class="form h-100 contact-wrap p-5">
+            <h3 class="text-center">Update User</h3>
+            <form class="mb-5"method="post" [formGroup]="UpdateUserForm" (submit)="formOperation($event)" id="UpdateUserFrom" name="UpdateUserFrom">
+              <div class="row">
+                <div class="col-md-6 form-group mb-3">
+                  <label for="" class="col-form-label">User Name</label>
+                  <input type="text" class="form-control" formControlName="userName" name="UserName" id="UserName" placeholder="UserName">
+                </div>
+                <div class="col-md-6 form-group mb-3">
+                  <label for="" class="col-form-label">Login Name</label>
+                  <input type="LoginName" class="form-control" formControlName="loginName" name="LoginName" id="LoginName"  placeholder="LoginName">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 form-group mb-3">
+                  <label for="" class="col-form-label">Branch</label>
+                    <select class="form-select" name="branchId"  formControlName="branchId">
+                      <option *ngFor="let branch of branches" [value]="branch.id">{{ branch.name }}</option>
+                    </select>
+                </div>
+              </div>
+              <div class="row pt-3 pt-3">
+                <div class="col-md-6 mb-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" formControlName="isSecurityOfficer"  id="isSecurityOfficer">
+                    <label class="form-check-label" for="isSecurityOfficer">
+                      Is Security Officer
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-6  mb-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox"  formControlName="isLocked" id="isLocked">
+                    <label class="form-check-label" for="isLocked">
+                      Is Locked
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row justify-content-center pt-3">
+                <div class="col-md-5 form-group text-center">
+                  <input type="submit" value="Save Changes" class="btn btn-block btn-primary rounded-0 py-2 px-4">
+                  <span class="submitting"></span>
+                </div>
+              </div>
+            </form>
+
+            <div id="form-message-warning mt-4"></div> 
+            <div id="form-message-success">
+              Your message was sent, thank you!
+            </div>
+            <!-- <p> 
+              {{UpdateUserForm.value | json}} 
+            </p> -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+    
+

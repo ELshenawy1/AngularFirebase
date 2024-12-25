@@ -1,0 +1,33 @@
+<div class="container mt-5">
+    <table class="table table-hover">
+      <thead class="table-light">
+        <tr class=" table-light">
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Notes</th>
+          <th scope="col">Operations</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let group of groups">
+          <th scope="row">{{ group.groupId }}</th>
+          <td>{{ group.groupName }}</td>
+          <td>{{ group.notes }}</td>
+          <td>
+            <a (click)="saveGroupId(group.groupId)" routerLink="/edit-group" class="btn btn-dark me-2" ><i class="bi bi-pencil-square"></i></a>
+            <a (click)="RemoveGroup(group.groupId)" class="btn btn-danger me-2" ><i class="bi bi-trash3"></i></a>
+          </td>
+        </tr>
+        <tr >
+          <td colspan="7" class="text-center"> 
+              <a class="btn btn-dark" routerLink="/create-group">
+                  Create New Group
+                  <i class="bi bi-plus-square"></i>
+              </a>
+          </td>
+      </tr>
+  
+      </tbody>
+    </table>
+  </div>
+  

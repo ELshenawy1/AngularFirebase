@@ -1,0 +1,98 @@
+<div class="container">
+  <div class="row ">
+    <div class="col-md-4 form-group mb-3">
+      <select class="form-select" name="selectedBranchId" (change)="onSearch()" [(ngModel)]="selectedBranchId">
+        <option value="" disabled selected>Branch</option>
+        <option value="">All</option>
+        <option *ngFor="let branch of branches" [value]="branch.branchId">{{ branch.branchName }}</option>
+      </select>
+
+    </div>
+    <div class="col-md-8 form-group mb-3">
+      <div class="d-flex justify-content-between align-items-center pb-2">
+        <div class="input-field col-md-12 d-flex ">
+          <input (keyup.enter)="onSearch()" type="text " placeholder="Search" class="form-control me-2" #search />
+          <button class="btn btn-outline-primary mx-2" (click)="onSearch()">Search</button>
+          <button class="btn btn-outline-success" (click)="onReset()">Reset</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container mt-1">
+    <table class="table table-hover text-center" #dataTable>
+      <thead class="table-light">
+        <tr class=" table-light">
+          <th scope="col">ID</th>
+          <th scope="col">Serial ID</th>
+          <th scope="col">Acceptor Name</th>
+          <th scope="col">Address</th>
+          <th scope="col">Branch</th>
+          <th scope="col">Type</th>
+          <th scope="col">IP Address</th>
+          <th scope="col">FRX</th>
+          <th scope="col">Opertaions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let atm of atms">
+          <th scope="row">{{ atm.id }}</th>
+          <td>{{ atm?.id2 }}</td>
+          <td>{{ atm?.id1 }}</td>
+          <td>{{ atm?.address }}</td>
+          <td>{{ atm?.atmBranch }}</td>
+          <td>{{ atm?.atmType?.typeName }}</td>
+          <td>{{ atm?.atmIp }}</td>
+          <td>
+            <div class="checkbox-wrapper-18 d-flex justify-content-center">
+              <div class="round">
+                <input type="checkbox" [checked]="atm?.activeFrx" disabled id="checkbox-18" />
+                <label for="checkbox-18"></label>
+              </div>
+            </div>
+          </td>
+          <td class="text-center">
+
+            <a (click)="saveAtmId(atm.id)" title="Details" routerLink="/atm-details" class="btn btn-dark me-2"><i
+                class="bi bi-list"></i></a>
+            <a (click)="saveAtmId(atm.id)" title="Edit" routerLink="/edit-atm" class="btn btn-dark me-2"><i
+                class="bi bi-pencil-square"></i></a>
+            <a (click)="RemoveAtm(atm.id)" title="Delete" class="btn btn-danger me-2"><i class="bi bi-trash3"></i></a>
+          </td>
+
+        </tr>
+        <tr>
+          <td colspan="9" class="text-center align-items-center">
+            <div class="pagination-wrapper">
+              <pagination [boundaryLinks]="true" [totalItems]="totalRecords" [itemsPerPage]="atmParams.pageSize"
+                [maxSize]="12" (pageChanged)="onPageChanged($event)" previousText="&lsaquo;" nextText="&rsaquo;"
+                firstText="&laquo;" lastText="&raquo;">
+              </pagination>
+
+            </div>
+            <header *ngIf="totalRecords && atmParams.pageIndex && atmParams.pageSize">
+              <span *ngIf="totalRecords>0">Show
+                <strong>{{(atmParams.pageIndex-1)*atmParams.pageSize+1}}-
+                  {{(atmParams.pageIndex * atmParams.pageSize > totalRecords)
+                  ? totalRecords
+                  : atmParams.pageIndex * atmParams.pageSize}}</strong>
+                of <strong>{{totalRecords}}</strong> Result
+              </span>
+              <span *ngIf="totalRecords == 0"><strong>There is no items</strong></span>
+            </header>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="9" class="text-center">
+            <a class="btn btn-dark" routerLink="/create-atm">
+              Add New ATM
+              <i class="bi bi-plus-square"></i>
+            </a>
+          </td>
+        </tr>
+
+
+
+      </tbody>
+    </table>
+
+  </div>

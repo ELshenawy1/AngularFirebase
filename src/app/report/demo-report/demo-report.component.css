@@ -1,0 +1,13 @@
+.report-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Set height to match the parent container */
+}
+
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Set height to match the parent container */
+}

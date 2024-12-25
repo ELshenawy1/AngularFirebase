@@ -1,0 +1,384 @@
+.card {
+    background-color: #fff;
+    border-radius: 3px;
+    border: none;
+    position: relative;
+    margin-bottom: 30px;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(90,97,105,0.1), 0 0.9375rem 1.40625rem rgba(90,97,105,0.1), 0 0.25rem 0.53125rem rgba(90,97,105,0.12), 0 0.125rem 0.1875rem rgba(90,97,105,0.1);
+  }
+  .l-bg-cherry {
+    background: linear-gradient(to right, #493240, #f09) !important;
+    color: #fff;
+  }
+  
+  .l-bg-blue-dark {
+    background: linear-gradient(to right, #373b44, #4286f4) !important;
+    color: #fff;
+  }
+  
+  .l-bg-green-dark {
+    background: #bfbfbf99 !important;
+    color: #413b3b;
+  }
+  
+  .l-bg-orange-dark {
+    background: linear-gradient(to right, #a86008, #ffba56) !important;
+    color: #fff;
+  }
+  
+  .card .card-statistic-3 .card-icon-large .fas, .card .card-statistic-3 .card-icon-large .far, .card .card-statistic-3 .card-icon-large .fab, .card .card-statistic-3 .card-icon-large .fal {
+    font-size: 30px;
+  }
+  
+  .card .card-statistic-3 .card-icon {
+    text-align: center;
+    line-height: 0px;
+    margin-left: 15px;
+    color: #000;
+    position: absolute;
+    right: 0px;
+    top: 00px;
+    opacity: 0.1;
+  }
+  
+  .l-bg-cyan {
+    background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
+    color: #fff;
+  }
+  
+  .l-bg-green {
+    background: linear-gradient(135deg, #23bdb8 0%, #43e794 100%) !important;
+    color: #fff;
+  }
+  
+  .l-bg-orange {
+    background: linear-gradient(to right, #f9900e, #ffba56) !important;
+    color: #fff;
+  }
+  
+  .l-bg-cyan {
+    background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
+    color: #fff;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  .demo{ font-family: 'Noto Sans', sans-serif; }
+  .panel{
+      background: linear-gradient(to right, #2980b9, #2c3e50);
+      padding: 0;
+      border-radius: 10px;
+      border: none;
+      box-shadow: 0 0 0 5px rgba(0,0,0,0.05),0 0 0 10px rgba(0,0,0,0.05);
+  }
+  .panel .panel-heading{
+      padding: 20px 15px;
+      border-radius: 10px 10px 0 0;
+      margin: 0;
+  }
+  .panel .panel-heading .title{
+      color: #fff;
+      font-size: 28px;
+      font-weight: 500;
+      text-transform: capitalize;
+      line-height: 40px;
+      margin: 0;
+  }
+  .panel .panel-heading .btn{
+      color: rgba(255,255,255,0.5);
+      background: transparent;
+      font-size: 16px;
+      text-transform: capitalize;
+      border: 2px solid #fff;
+      border-radius: 50px;
+      transition: all 0.3s ease 0s;
+  }
+  .panel .panel-heading .btn:hover{
+      color: #fff;
+      text-shadow: 3px 3px rgba(255,255,255,0.2);
+  }
+  .panel .panel-heading .form-control{
+      color: #fff;
+      background-color: transparent;
+      width: 35%;
+      height: 40px;
+      border: 2px solid #fff;
+      border-radius: 20px;
+      display: inline-block;
+      transition: all 0.3s ease 0s;
+  }
+  .panel .panel-heading .form-control:focus{
+      background-color: rgba(255,255,255,0.2);
+      box-shadow: none;
+      outline: none;
+  }
+  .panel .panel-heading .form-control::placeholder{
+      color: rgba(255,255,255,0.5);
+      font-size: 15px;
+      font-weight: 500;
+  }
+  .panel .panel-body{ padding: 0; }
+  .panel .panel-body .table thead tr th{
+      color: #fff;
+      background-color: rgba(255, 255, 255, 0.2);
+      font-size: 16px;
+      font-weight: 500;
+      text-transform: uppercase;
+      padding: 12px;
+      border: none;
+  }
+  .panel .panel-body .table tbody tr td{
+      color: #fff;
+      font-size: 15px;
+      padding: 10px 12px;
+      vertical-align: middle;
+      border: none;
+  }
+  .panel .panel-body .table tbody tr:nth-child(even){ background-color: rgba(255,255,255,0.05); }
+  .panel .panel-body .table tbody .action-list{
+      padding: 0;
+      margin: 0;
+      list-style: none;
+  }
+  .panel .panel-body .table tbody .action-list li{
+      display: inline-block;
+      margin: 0 5px;
+  }
+  .panel .panel-body .table tbody .action-list li a{
+      color: #fff;
+      font-size: 15px;
+      position: relative;
+      z-index: 1;
+      transition: all 0.3s ease 0s;
+  }
+  .panel .panel-body .table tbody .action-list li a:hover{ text-shadow: 3px 3px 0 rgba(255,255,255,0.3); }
+  .panel .panel-body .table tbody .action-list li a:before,
+  .panel .panel-body .table tbody .action-list li a:after{
+      content: attr(data-tip);
+      color: #fff;
+      background-color: #111;
+      font-size: 12px;
+      padding: 5px 7px;
+      border-radius: 4px;
+      text-transform: capitalize;
+      display: none;
+      transform: translateX(-50%);
+      position: absolute;
+      left: 50%;
+      top: -32px;
+      transition: all 0.3s ease 0s;
+  }
+  .panel .panel-body .table tbody .action-list li a:after{
+      content: '';
+      height: 15px;
+      width: 15px;
+      padding: 0;
+      border-radius: 0;
+      transform: translateX(-50%) rotate(45deg);
+      top: -18px;
+      z-index: -1;
+  }
+  .panel .panel-body .table tbody .action-list li a:hover:before,
+  .panel .panel-body .table tbody .action-list li a:hover:after{
+      display: block;
+  }
+  .panel .panel-footer{
+      color: #fff;
+      background-color: transparent;
+      padding: 15px;
+      border: none;
+  }
+  .panel .panel-footer .col{ line-height: 35px; }
+  .pagination{ margin: 0; }
+  .pagination li a{
+      color: #fff;
+      background-color: transparent;
+      border: 2px solid transparent;
+      font-size: 18px;
+      font-weight: 500;
+      text-align: center;
+      line-height: 31px;
+      width: 35px;
+      height: 35px;
+      padding: 0;
+      margin: 0 3px;
+      border-radius: 50px;
+      transition: all 0.3s ease 0s;
+  }
+  .pagination li a:hover{
+      color: #fff;
+      background-color: transparent;
+      border-color: rgba(255,255,255,0.2);
+  }
+  .pagination li a:focus,
+  .pagination li.active a,
+  .pagination li.active a:hover{
+      color: #fff;
+      background-color: transparent;
+      border-color: #fff;
+  }
+  .pagination li:first-child a,
+  .pagination li:last-child a{
+      border-radius: 50%;
+  }
+  @media only screen and (max-width:767px){
+      .panel .panel-heading .title{
+          text-align: center;
+          margin: 0 0 10px;
+      }
+      .panel .panel-heading .btn_group{ text-align: center; }
+  }
+  
+  ::ng-deep .popover-header {
+      text-align: center;
+  }
+  
+  
+  
+  .atm-dashboard-card {
+      border: 1px solid #ddd; /* Light border around the card */
+      border-radius: 8px; /* Rounded corners */
+      padding: 16px; /* Padding inside the card */
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for card effect */
+      background-color: #fff; /* White background */
+      margin: 16px auto; /* Center card with some margin */
+    }
+    
+
+
+
+
+
+
+
+
+
+
+    /* ZZZ */
+
+    /* First Code Styles */
+.carde {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0px solid rgba(0, 0, 0, 0);
+    border-radius: .25rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);
+}
+
+.radius-10 {
+    border-radius: 10px !important;
+}
+
+.border-info {
+    border-left: 5px solid #0dcaf0 !important;
+}
+.border-danger {
+    border-left: 5px solid  #fd3550 !important;
+}
+.border-success {
+    border-left: 5px solid  #15ca20 !important;
+}
+.border-warning {
+    border-left: 5px solid  #ffc107 !important;
+}
+
+/* Other border styles here... */
+
+.widgets-icons-2 {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ededed;
+    font-size: 27px;
+    border-radius: 10px;
+}
+
+.text-white {
+    color: #fff!important;
+}
+
+.ms-auto {
+    margin-left: auto!important;
+}
+
+/* Second Code Styles */
+.card-v2 {
+    background-color: #fff;
+    border-radius: 3px;
+    border: none;
+    position: relative;
+    margin-bottom: 30px;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(90,97,105,0.1), 
+                0 0.9375rem 1.40625rem rgba(90,97,105,0.1), 
+                0 0.25rem 0.53125rem rgba(90,97,105,0.12), 
+                0 0.125rem 0.1875rem rgba(90,97,105,0.1);
+}
+
+.l-bg-cherry {
+    background: linear-gradient(to right, #493240, #f09) !important;
+    color: #fff;
+}
+
+/* Other gradient background styles here... */
+
+.panel { 
+    background: linear-gradient(to right, #2980b9, #2c3e50); 
+    padding: 0; 
+    border-radius: 10px; 
+    border: none; 
+}
+
+.panel .panel-heading {
+    padding: 20px 15px;
+    border-radius: 10px 10px 0 0;
+    margin: 0;
+}
+
+/* Keeping other styles intact */
+.panel .panel-body { 
+    padding: 0; 
+}
+
+/* Pagination styles */
+.pagination li a {
+    color: #fff;
+    background-color: transparent;
+    border: 2px solid transparent;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 31px;
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    margin: 0 3px;
+    border-radius: 50px;
+    transition: all 0.3s ease 0s;
+}

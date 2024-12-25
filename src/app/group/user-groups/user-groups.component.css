@@ -1,0 +1,8 @@
+.table-rounded {
+    border-radius: 10px; /* Adjust the value as needed */
+    overflow: hidden; /* Ensure the rounded corners are visible */
+  }
+
+  .plus-icon-hover:hover {
+    cursor: pointer;
+  }

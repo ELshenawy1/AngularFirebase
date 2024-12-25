@@ -1,0 +1,56 @@
+<div class="ag-format-container">
+  <div class="ag-courses_box">
+    <div class="ag-courses_item" (mouseenter)="onHover(0)" (mouseleave)="onHover(-1)" *ngIf="audit">
+        <a [routerLink]="['/Report/SysTraceReport']"  class="ag-courses-item_link">
+          <div class="ag-courses-item_bg"></div>
+  
+          <div class="ag-courses-item_title" *ngIf="!(0 == hoverIndex)">
+            Audit Report
+          </div>
+  
+          <div class="ag-courses-item_date-box" *ngIf="0 == hoverIndex">
+            <span class="ag-courses-item_date">
+              This audit report tracks and logs various user actions within a
+              system, providing a comprehensive record for monitoring and
+              accountability.
+            </span>
+          </div>
+        </a>
+      </div>
+      
+      <div class="ag-courses_item" (mouseenter)="onHover(1)" (mouseleave)="onHover(-1)" *ngIf="wlt">
+        <a [routerLink]="['/Report/WalletReport']" class="ag-courses-item_link">
+          <div class="ag-courses-item_bg"></div>
+  
+          <div class="ag-courses-item_title" *ngIf="!(1 == hoverIndex)">
+            eWallet Report
+          </div>
+  
+          <div class="ag-courses-item_date-box" *ngIf="1 == hoverIndex">
+            <span class="ag-courses-item_date">
+              The eWallet Report provides transaction details with filters for date, ATM, mobile, branch, and region.
+            </span>
+          </div>
+        </a>
+      </div>
+
+      <div class="ag-courses_item" (mouseenter)="onHover(2)" (mouseleave)="onHover(-1)" *ngIf="frx">
+        <a [routerLink]="['/Report/FrxNewReport']" class="ag-courses-item_link">
+          <div class="ag-courses-item_bg"></div>
+  
+          <div class="ag-courses-item_title" *ngIf="!(2 == hoverIndex)">
+            Forex Reports
+          </div>
+  
+          <div class="ag-courses-item_date-box" *ngIf="2 == hoverIndex">
+            <span class="ag-courses-item_date">
+              Generate detailed reports on forex transactions, ATM activities, and operational summaries. Filter by date, branch, or ATM ID to track performance and ensure transparency.
+            </span>
+          </div>
+        </a>
+      </div>
+
+      
+  </div>
+  
+</div>

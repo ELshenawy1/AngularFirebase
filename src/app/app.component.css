@@ -1,0 +1,47 @@
+/* .fixed-tops {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+} */
+
+.fixed-sidebar {
+  position: fixed;
+  /* top: 64px;  */
+}
+
+.centered-items {
+  display: flex;
+  justify-content: center; /* Centers items horizontally */
+  align-items: center; /* Centers items vertically */
+  height: 100%; /* Ensure it takes full height of the toolbar */
+}
+  
+/* 
+html {
+  --mat-sidenav-container-background-color: #f5f5f5;
+} */
+
+/* app-custom-sidenav {
+  border: none;
+  outline: none;
+} */
+mat-sidenav {
+  border: none;
+  outline: none;
+}
+
+mat-toolbar{
+  position: relative;
+  z-index: 5;
+}
+.content{
+  padding: 24px;
+}
+mat-sidenav-container{
+  height: calc(100vh - 64px);
+}
+
+mat-sidenav, mat-sidenav-content{
+  transition: all 500ms ease-in-out;
+}

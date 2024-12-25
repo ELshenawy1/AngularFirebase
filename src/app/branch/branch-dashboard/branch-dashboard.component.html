@@ -1,0 +1,43 @@
+<div class="container mt-5" >
+    <table class="table table-hover text-center" #dataTable>
+      <thead class="table-light">
+        <tr class=" table-light">
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Address</th>
+          <th scope="col">Telephone</th>
+          <th scope="col">Contact User 1</th>
+          <th scope="col">Telephone</th>
+          <th scope="col">Telephone</th>
+          <th scope="col">Opertaions</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+        <tr *ngFor="let branch of branches">
+          <th scope="row">{{ branch.branchId }}</th>
+          <td>{{ branch?.branchName }}</td>
+          <td>{{ branch?.branchAddress }}</td>
+          <td>{{ branch?.branchTel1 }}</td>
+          <td>{{ branch?.contactUser }}</td>
+          <td>{{ branch?.branchTel2 }}</td>
+          <td>{{ branch?.branchTel2 }}</td>
+          <td class="text-center">
+            <button title="Edit"disabled routerLink="/edit-atm" class="btn btn-dark me-2" ><i class="bi bi-pencil-square"></i></button>
+            <button title="Delete" disabled class="btn btn-danger me-2" ><i class="bi bi-trash3"></i></button>
+          </td>
+  
+        </tr>
+        <tr >
+          <td colspan="9" class="text-center"> 
+              <a class="btn btn-dark" routerLink="/create-atm">
+                  Add New Branch
+                  <i class="bi bi-plus-square"></i>
+              </a>
+          </td>
+      </tr>
+  
+      </tbody>
+    </table>
+    
+  </div>
