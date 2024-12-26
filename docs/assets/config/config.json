@@ -1,7 +1,7 @@
 {
     "serviceConfig" : {
         "apiUrl" : "https://userone010-001-site1.qtempurl.com/api",
-        "currentBank": "HDB",
+        "currentBank": "NXT",
         "audit" : true,
         "cms" : true,
         "frx" : true, 
