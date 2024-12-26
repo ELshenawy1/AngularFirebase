@@ -1,6 +1,6 @@
 {
     "serviceConfig" : {
-        "apiUrl" : "http://userone010-001-site1.qtempurl.com/api",
+        "apiUrl" : "https://userone010-001-site1.qtempurl.com/api",
         "currentBank": "HDB",
         "audit" : true,
         "cms" : true,
